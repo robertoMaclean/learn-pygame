@@ -18,6 +18,8 @@ class Platform(pygame.sprite.Sprite):
         self.speed = random.randint(-1, 1)
         self.moving = True
         self.coins = coins
+        if self.speed == 0:
+            self.moving = False
 
     def move(self):
         if self.moving == True: 
@@ -30,5 +32,6 @@ class Platform(pygame.sprite.Sprite):
 
     def generate_coin(self):
         if (self.speed == 0):
+            print('creando coin')
             coin = Coin((self.rect.centerx, self.rect.centery - 50))
             self.coins.add(coin)

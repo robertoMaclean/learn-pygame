@@ -29,6 +29,10 @@ while True:
             plat.rect.y += abs(player.vel.y)
             if plat.rect and plat.rect.top >= HEIGHT:
                 plat.kill()
+        for coin in coins:
+            coin.rect.y += abs(player.vel.y)
+            if coin.rect.top >= HEIGHT:
+                coin.kill()
     platform_generation.plat_gen()
     displaysurface.blit(background, (0,0))
     f = pygame.font.SysFont('Verdana', 20)
